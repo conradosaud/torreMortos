@@ -7,17 +7,23 @@ using UnityEngine.SceneManagement;
 public class CombatePersonagem : MonoBehaviour
 {
 
+    Transform sons;
 
     public BoxCollider colisorArma;    
     BoxCollider colisorEspecial;
 
     public ArmaStatus armaStatus;    
-    public HUDController hudController;
+    HUDController hudController;
 
     Text recargaEspecial;
     Image fundoEspecial;
 
-    float especialRecarga;
+    Text hudRolagem;
+    Image hudRolagemFundo;
+    float recargaRolagem;
+    float valorRolagem = 2f;
+
+    public float especialRecarga;
     float valorRecarga;
 
     // tempo de respiro entre tomar animações de ataque
@@ -38,27 +44,43 @@ public class CombatePersonagem : MonoBehaviour
         movimentoPersonagem = GetComponent<MovimentoPersonagem>();
 
         colisorEspecial = colisorArma.transform.Find("Especial").GetComponent<BoxCollider>();
-
         valorRecarga = armaStatus.especial_recarga;
+
+        hudController = GameObject.FindGameObjectsWithTag("hud")[0].GetComponent<HUDController>();
         fundoEspecial = hudController.GetComponent<Transform>().Find("hudContador").transform.Find("especial").GetComponent<Image>();
         recargaEspecial = fundoEspecial.transform.Find("contador").GetComponent<Text>();
+
+        hudRolagemFundo = GameObject.FindGameObjectsWithTag("hud")[0].GetComponent<Transform>().Find("hudContador").transform.Find("rolagem").GetComponent<Image>();
+        hudRolagem = hudRolagemFundo.transform.Find("contador").GetComponent<Text>();
+
+        //sons = GameObject.FindGameObjectsWithTag("audio")[0].transform;
+
     }
 
     void Update()
     {
+
         // botão e identificador do ataque
         bool botaoAtacar = Input.GetKeyDown(KeyCode.Mouse0);
         bool botaoEspecial = Input.GetKeyDown(KeyCode.Mouse1);
 
-        if(botaoAtacar){
-            personagemAtacar("atacar");
-            movimentoPersonagem.alteraVel( armaStatus.reducao_vel_ataque );
+        bool rolagem = Input.GetKeyDown(KeyCode.LeftShift);
+        if(rolagem && recargaRolagem < 0){
+            animator.SetTrigger("rolar");
+            //movimentoPersonagem.alteraVel(10);
+            recargaRolagem = valorRolagem;
         }
 
-        if(botaoEspecial && especialRecarga < 0){
-            personagemAtacar("esp-espada-barao");
-            especialRecarga = valorRecarga;
-            movimentoPersonagem.alteraVel( armaStatus.reducao_vel_especial );
+        if(!estaAtacando){
+            if(botaoAtacar){
+                personagemAtacar("atacar");
+                movimentoPersonagem.alteraVel( armaStatus.reducao_vel_ataque );
+            }
+            if(botaoEspecial && especialRecarga < 0){
+                personagemAtacar(armaStatus.animacao_especial);
+                especialRecarga = valorRecarga;
+                movimentoPersonagem.alteraVel( armaStatus.reducao_vel_especial );
+            }
         }
 
         if(especialRecarga >= 0){ 
@@ -74,6 +96,17 @@ public class CombatePersonagem : MonoBehaviour
 
         if(recargaDano > 0){
             recargaDano -= Time.deltaTime;
+        }
+
+        if(recargaRolagem >= 0){
+            recargaRolagem -= Time.deltaTime;
+            hudRolagem.gameObject.SetActive(true);
+            hudRolagem.text = recargaRolagem.ToString("0.0");
+            hudRolagemFundo.color = new Color32(255,255,225,10);
+        }
+        if(recargaRolagem <= 0){
+            hudRolagem.gameObject.SetActive(false);
+            hudRolagemFundo.color = new Color32(255,255,225,60);
         }
 
     }
@@ -144,16 +177,21 @@ public class CombatePersonagem : MonoBehaviour
     public void processoRolagem(int i){
         if(i == 1){
             estaRolando = true;
-            movimentoPersonagem.alteraVel( 4f );
+            movimentoPersonagem.alteraVel( 5f );
+            processoAtaque(1);
         }else{
             estaRolando = false;
             movimentoPersonagem.resetarVel();
+            processoAtaque(0);
         }
+        habilitaColisaoArma(0);
+        habilitaColisaoEspecial(0);
     }
 
     // habilita/desabilita a colisão da arma
     public void habilitaColisaoArma(int i){
         if(i == 1){
+            //sons.Find("Personagem").transform.Find("ArmaVento").GetComponent<AudioSource>().Play();
             colisorArma.enabled = true;
         }else{
             colisorArma.enabled = false;
@@ -164,10 +202,25 @@ public class CombatePersonagem : MonoBehaviour
     public void habilitaColisaoEspecial(int i){
         if(i == 1){
             colisorEspecial.enabled = true;
+            if(colisorEspecial.GetComponent<MeshRenderer>()){
+                colisorEspecial.GetComponent<MeshRenderer>().enabled = true;
+            }
+            //colisorEspecial.gameObject.SetActive(true);
         }else{
+            
             colisorEspecial.enabled = false;
+            if(colisorEspecial.GetComponent<MeshRenderer>()){
+                colisorEspecial.GetComponent<MeshRenderer>().enabled = false;
+            }
+            //colisorEspecial.gameObject.SetActive(false);
         }
     }
     
+    public void atualizaArma(ArmaStatus aStatus, BoxCollider colisor){
+        armaStatus = aStatus;
+        colisorArma = colisor;
+        colisorEspecial = colisorArma.transform.Find("Especial").GetComponent<BoxCollider>();
+        valorRecarga = aStatus.especial_recarga;
+    }
 
 }

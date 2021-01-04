@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class CombateObjetos : MonoBehaviour
 {
 
-    public Jogador jogador;
+    Jogador jogador;
 
     public DroparItem droparItem;
 
@@ -19,6 +19,8 @@ public class CombateObjetos : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         inimigo = GetComponent<Inimigo>();
+
+        jogador = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Jogador>();
     }
 
     /* **************

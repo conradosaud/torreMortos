@@ -7,7 +7,6 @@ public class ArmaStatus : MonoBehaviour
 
     public string nome;
     public float ataque;
-    public float velocidade;
     public int essencias;
 
     public float reducao_vel_ataque;
@@ -15,5 +14,9 @@ public class ArmaStatus : MonoBehaviour
 
     public float especial_recarga;
     public float especial_ataque;
+
+    public string animacao_especial;
+
+    public string descricao;
 
 }

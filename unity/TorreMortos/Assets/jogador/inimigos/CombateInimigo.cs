@@ -81,6 +81,8 @@ public class CombateInimigo : MonoBehaviour
     // recebe dano do personagem ou outra fonte
     public void sofrerDano(float dano){
 
+        //inimigo.apanhar.Play();
+
         // desconta o dano da vida do personagem
         inimigo.vida -= dano;
 

@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Inimigo : MonoBehaviour
 {
+
+    public AudioSource apanhar;
+    public AudioSource bater;
+    public AudioSource morrer;
+
     public string nome;
 
     public float vida;

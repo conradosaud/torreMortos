@@ -5,8 +5,8 @@ using UnityEngine;
 public class EssenciaSeguirJogador : MonoBehaviour
 {
 
-    public Transform jogador;
-    public HUDController hud;
+    Transform jogador;
+    HUDController hud;
 
     bool imantar = false;
     float tempoSpawn = 0.5f;
@@ -19,6 +19,8 @@ public class EssenciaSeguirJogador : MonoBehaviour
     void Start()
     {
         essenciaVida = transform.parent.GetComponent<Transform>();
+        jogador = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Transform>();
+        hud = GameObject.FindGameObjectsWithTag("hud")[0].GetComponent<HUDController>();
     }
 
     void Update()

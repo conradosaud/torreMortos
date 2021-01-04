@@ -8,7 +8,7 @@ public class CombateObjetos : MonoBehaviour
 
     Jogador jogador;
 
-    public DroparItem droparItem;
+    DroparItem droparItem;
 
     bool estaVivo = true;
     
@@ -21,6 +21,7 @@ public class CombateObjetos : MonoBehaviour
         inimigo = GetComponent<Inimigo>();
 
         jogador = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Jogador>();
+        droparItem = GameObject.FindGameObjectsWithTag("Drop")[0].GetComponent<DroparItem>();
     }
 
     /* **************

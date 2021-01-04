@@ -8,7 +8,9 @@ public class Buraco : MonoBehaviour
     public Collider chao;
 
     private void OnTriggerEnter(Collider other) {
-        chao.enabled = false;
+        if(other.name == "Jogador"){
+            chao.enabled = false;
+        }
     }
     private void OnTriggerExit(Collider other) {
         chao.enabled = true;

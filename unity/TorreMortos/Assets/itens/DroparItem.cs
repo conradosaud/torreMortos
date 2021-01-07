@@ -30,6 +30,7 @@ public class DroparItem : MonoBehaviour
         for (int i = 0; i < quantidade; i++)
         {
             Transform instancia = Instantiate(essenciaVida, posicao, Quaternion.Euler(new Vector3(-90, 0, 0)), pai);
+            instancia.gameObject.SetActive(true);
             Rigidbody rig = instancia.GetComponent<Rigidbody>();
 
             float convert = (float) i;

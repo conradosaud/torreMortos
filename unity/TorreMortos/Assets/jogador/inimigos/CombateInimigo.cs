@@ -156,6 +156,7 @@ public class CombateInimigo : MonoBehaviour
     public void inimigoMorto(int i){
         if(i == 0){
             controleNavegacao.pararSeguir();
+            habilitaColisaoArma(0);
         }else{
             Destroy(gameObject);
         }

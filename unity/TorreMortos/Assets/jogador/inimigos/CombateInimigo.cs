@@ -14,8 +14,10 @@ public class CombateInimigo : MonoBehaviour
     bool estaAtacando;
     bool estaVivo = true;
 
+    float velocidadePadrao;
+
     // intervalo de tempo da a animação de receber dano
-    float valorResfriamento = 0.9f;
+    float valorResfriamento = 1.3f;
     float tempoResfriamento;
     
     Inimigo inimigo;
@@ -32,6 +34,8 @@ public class CombateInimigo : MonoBehaviour
 
         jogador = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Jogador>();
         droparItem = GameObject.FindGameObjectsWithTag("Drop")[0].GetComponent<DroparItem>();
+
+        velocidadePadrao = navAgent.speed;
 
     }
 
@@ -131,9 +135,11 @@ public class CombateInimigo : MonoBehaviour
     public void processoAtaque(int i){
         if(i == 1){
             navAgent.velocity = Vector3.zero;
+            navAgent.speed = 0f;
             estaAtacando = true;
         }else{
             estaAtacando = false;
+            navAgent.speed = velocidadePadrao;
             
         }
     }

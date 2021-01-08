@@ -43,7 +43,7 @@ public class CombateInimigo : MonoBehaviour
     {
         // verifica se o inimigo está próximo do alvo e se está habilitado para seguir
         if(controleNavegacao.seguirPersonagem == true){
-            if( Vector3.Distance(transform.position, jogador.transform.position) < 3f){
+            if( Vector3.Distance(transform.position, jogador.transform.position) < 2f){
                 inimigoAtacar();
             }
             olharJogador();

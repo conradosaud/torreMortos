@@ -64,7 +64,8 @@ public class EssenciaSeguirJogador : MonoBehaviour
     }
     public void ganhaEssencia(int quantidade){
         float valor = quantidade * 3.5f;
-        hud.alteraVida(valor);
+        GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Jogador>().vida += valor;
+        hud.atualizaVida();
     }
 
 

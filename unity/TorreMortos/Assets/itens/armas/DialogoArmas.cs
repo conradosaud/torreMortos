@@ -183,4 +183,8 @@ public class DialogoArmas : MonoBehaviour
         return false;
     }
 
+
+    
+
+
 }

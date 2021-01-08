@@ -12,9 +12,8 @@ public class HUDController : MonoBehaviour
     *    PUBLIC    *
     ************** */
 
-    public void alteraVida(float valor){
-        float atual = float.Parse(texto_vida.text) + valor;
-        texto_vida.text = atual.ToString("0");
+    public void atualizaVida(){
+        texto_vida.text = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Jogador>().vida.ToString("0");
     }
 
 }

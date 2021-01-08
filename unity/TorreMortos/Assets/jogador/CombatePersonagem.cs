@@ -144,7 +144,7 @@ public class CombatePersonagem : MonoBehaviour
             mataPersonagem(true);
         }
 
-        hudController.alteraVida(-dano);
+        hudController.atualizaVida();
     }
 
     // zera a vida do personagem chamando game over ou não

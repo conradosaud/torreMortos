@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TorrePorta : MonoBehaviour
 {
-    public bool passagem = false;
+    public GameObject guardiao;
     Text hud;
 
     void Start(){
@@ -14,20 +15,28 @@ public class TorrePorta : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         hud.gameObject.SetActive(true);
-        if(passagem){
-            hud.text = "Entrar (Q)";
-        }else{
+        if(guardiao != null){
             hud.text = "Inimigos bloqueiam a entrada.";
+        }else{
+            hud.text = "Entrar (Q)";
         }
     }
     private void OnTriggerStay(Collider other) {
-        if(passagem && Input.GetKeyDown(KeyCode.Q)){
+        if(guardiao == null && Input.GetKeyDown(KeyCode.Q)){
             
-            Debug.Log("Entrou");
+            GameObject.FindGameObjectsWithTag("hud")[0].transform.Find("Loading").transform.gameObject.SetActive(true);
+
+            Jogador p = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Jogador>();
+
+            GameStatus.personagem_vida = p.vida;
+            GameStatus.personagem_arma = p.buscaArma().transform.Find("ArmaPersonagem").GetComponent<ArmaStatus>().nome;
+
+            SceneManager.LoadScene("Entrada");
 
         }
     }
     private void OnTriggerExit(Collider other) {
         hud.gameObject.SetActive(false);
     }
+
 }

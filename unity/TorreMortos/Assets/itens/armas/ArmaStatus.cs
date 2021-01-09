@@ -19,4 +19,12 @@ public class ArmaStatus : MonoBehaviour
 
     public string descricao;
 
+    public AudioSource somAtaque;
+    public AudioSource somEspecial;
+
+    void Start(){
+        somAtaque = transform.Find("audioAtaque").GetComponent<AudioSource>();
+        somEspecial = transform.Find("audioEspecial").GetComponent<AudioSource>();
+    }
+
 }

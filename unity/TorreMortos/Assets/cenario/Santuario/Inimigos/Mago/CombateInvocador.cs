@@ -31,6 +31,7 @@ public class CombateInvocador : MonoBehaviour
         if(tempoInvocacao < 0 && numeroInvocacoes < 20 && estaVivo){
             anim.SetTrigger("atacar");
             tempoInvocacao = recargaInvocacao;
+            GameObject.FindGameObjectsWithTag("audio")[0].transform.Find("Inimigos").transform.Find("InvocadorDesalmado").transform.Find("Ataque").GetComponent<AudioSource>().Play();
         }
     }
 
@@ -56,6 +57,7 @@ public class CombateInvocador : MonoBehaviour
     private void OnTriggerEnter(Collider other){
         if(other.name == "ArmaPersonagem"){
             anim.SetTrigger("morrer");
+            GameObject.FindGameObjectsWithTag("audio")[0].transform.Find("Inimigos").transform.Find("InvocadorDesalmado").transform.Find("Morte").GetComponent<AudioSource>().Play();
         }
     }
 

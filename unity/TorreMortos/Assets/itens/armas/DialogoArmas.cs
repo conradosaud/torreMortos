@@ -178,6 +178,8 @@ public class DialogoArmas : MonoBehaviour
         if(nEssencia > armaStatus.essencias){
             GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<CombatePersonagem>().sofrerDano(armaStatus.essencias);
             armaStatus.essencias = 0;
+
+
             return true;
         }
         return false;

@@ -310,6 +310,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &54378289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 54378281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b64122e37938714496a9b15a2966811, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &54378290 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 99da389316e714e448b2de7cd0016d7f,
@@ -600,12 +612,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nome: Arco de Guerra
-  ataque: 10
+  ataque: 15
   essencias: 0
   reducao_vel_ataque: 6
   reducao_vel_especial: 0
   especial_recarga: 2
-  especial_ataque: 20
+  especial_ataque: 22
   animacao_especial: arco-guerra
   descricao: Atira uma flecha que perfura todos os alvos no caminho.
 --- !u!114 &109590436
@@ -848,12 +860,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nome: "Crep\xFAsculo"
-  ataque: 30
+  ataque: 40
   essencias: 0
   reducao_vel_ataque: 3.5
   reducao_vel_especial: 0.3
-  especial_recarga: 0
-  especial_ataque: 45
+  especial_recarga: 8
+  especial_ataque: 80
   animacao_especial: crepusculo
   descricao: Causa um largo dano linear a todos inimigos a frente.
 --- !u!65 &148619769
@@ -1321,6 +1333,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Arco de Guerra
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c40182dee21c664a8870d2a801b795f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4626951049002306728, guid: 6c40182dee21c664a8870d2a801b795f,
         type: 3}
@@ -6514,12 +6531,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nome: "Cajado Mort\xEDfero"
-  ataque: 20
-  essencias: 300
+  ataque: 10
+  essencias: 0
   reducao_vel_ataque: 5
   reducao_vel_especial: 3
   especial_recarga: 2
-  especial_ataque: 30
+  especial_ataque: 45
   animacao_especial: cajado-mortifero
   descricao: "Tr\xEAs explos\xF5es a frente do jogador. Pode causar danos m\xFAltiplos."
 --- !u!65 &310228675
@@ -7728,6 +7745,7 @@ Transform:
   - {fileID: 1568794263}
   - {fileID: 109590434}
   - {fileID: 310228672}
+  - {fileID: 777102127}
   m_Father: {fileID: 1458346118}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13547,8 +13565,8 @@ MonoBehaviour:
   bater: {fileID: 0}
   morrer: {fileID: 0}
   nome: Odis
-  vida: 50
-  ataque: 25
+  vida: 60
+  ataque: 45
   essencia_min: 0
   essencia_max: 0
 --- !u!114 &761002607
@@ -13714,6 +13732,52 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 0de8214bac29e07439bd729df9e5401b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a743970c493e64bbbb1812ace207b2, type: 3}
+--- !u!1 &777102126 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 27a3acdac69c42d48863b8bbd43bd35b,
+    type: 3}
+  m_PrefabInstance: {fileID: 824806335}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &777102127 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 27a3acdac69c42d48863b8bbd43bd35b,
+    type: 3}
+  m_PrefabInstance: {fileID: 824806335}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &777102128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777102126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d267725dd763dc742a331415739b9189, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nome: "Espada Amaldi\xE7oada"
+  ataque: 20
+  essencias: 0
+  reducao_vel_ataque: 3.5
+  reducao_vel_especial: 1
+  especial_recarga: 5
+  especial_ataque: 35
+  animacao_especial: espada-amaldicoada
+  descricao: "Golpe girat\xF3rio que afeta todos alvos no meio-c\xEDrculo."
+--- !u!65 &777102129
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777102126}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.63313174, y: 1.7721786, z: 0.88014996}
+  m_Center: {x: -0.18343401, y: -0.3860897, z: -0.08242228}
 --- !u!4 &803878377 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8504309617613441659, guid: 99da389316e714e448b2de7cd0016d7f,
@@ -13996,6 +14060,110 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 7f0afcd2c002fff4498c8f7f168c001d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a958eef193a3e84e85851a0217ad2d8, type: 3}
+--- !u!1001 &824806335
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 542949636}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 27a3acdac69c42d48863b8bbd43bd35b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 27a3acdac69c42d48863b8bbd43bd35b,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 27a3acdac69c42d48863b8bbd43bd35b,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.84999985
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 27a3acdac69c42d48863b8bbd43bd35b,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 27a3acdac69c42d48863b8bbd43bd35b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.1247993
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 27a3acdac69c42d48863b8bbd43bd35b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.85214424
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 27a3acdac69c42d48863b8bbd43bd35b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -24.173073
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 27a3acdac69c42d48863b8bbd43bd35b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.63717693
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 27a3acdac69c42d48863b8bbd43bd35b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.30660284
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 27a3acdac69c42d48863b8bbd43bd35b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.30660254
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 27a3acdac69c42d48863b8bbd43bd35b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.6371776
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 27a3acdac69c42d48863b8bbd43bd35b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 12.1310005
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 27a3acdac69c42d48863b8bbd43bd35b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -26.952002
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 27a3acdac69c42d48863b8bbd43bd35b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 250.543
+      objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 27a3acdac69c42d48863b8bbd43bd35b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 62cbbe6d7abd9a2419938f905b11df23, type: 2}
+    - target: {fileID: 919132149155446097, guid: 27a3acdac69c42d48863b8bbd43bd35b,
+        type: 3}
+      propertyPath: m_Name
+      value: "Espada Amaldi\xE7oada"
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 27a3acdac69c42d48863b8bbd43bd35b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 27a3acdac69c42d48863b8bbd43bd35b,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 27a3acdac69c42d48863b8bbd43bd35b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 27a3acdac69c42d48863b8bbd43bd35b, type: 3}
 --- !u!1 &848202665
 GameObject:
   m_ObjectHideFlags: 0
@@ -19571,6 +19739,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Cajado Mort\xEDfero"
       objectReference: {fileID: 0}
+    - target: {fileID: 1824678676741916971, guid: d3a6c914c29a21d4d933dca3771774b7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5216829482334638571, guid: d3a6c914c29a21d4d933dca3771774b7,
         type: 3}
       propertyPath: m_RootOrder
@@ -20438,7 +20611,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 778d50f5e70866c41bdad5ffba347fcb,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3439837879052528775, guid: 778d50f5e70866c41bdad5ffba347fcb,
         type: 3}
@@ -21806,6 +21979,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: "Machado Tel\xFArico"
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3f8dd3d19a1b1cf41af1307f01b4b135,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f8dd3d19a1b1cf41af1307f01b4b135, type: 3}
@@ -26959,6 +27137,50 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1688106992}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1486457009
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1486457010}
+  - component: {fileID: 1486457011}
+  m_Layer: 0
+  m_Name: Especial
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1486457010
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486457009}
+  m_LocalRotation: {x: 0.608761, y: 0.00000026356423, z: -0.0000006556509, w: 0.7933537}
+  m_LocalPosition: {x: -0.21927361, y: -0.2945451, z: 0.41371527}
+  m_LocalScale: {x: 1, y: 3.2451618, z: 2.4379377}
+  m_Children: []
+  m_Father: {fileID: 777102127}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1486457011
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486457009}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1532760488
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27291,7 +27513,7 @@ MonoBehaviour:
   essencias: 0
   reducao_vel_ataque: 2.5
   reducao_vel_especial: 0
-  especial_recarga: 20
+  especial_recarga: 12
   especial_ataque: 100
   animacao_especial: machado-telurico
   descricao: "Executa um salto que causa dano em toda \xE1rea de aterrissagem."
@@ -34903,6 +35125,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: "Crep\xFAsculo"
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 10311319a2b4af340b00ce6080f070df,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10311319a2b4af340b00ce6080f070df, type: 3}

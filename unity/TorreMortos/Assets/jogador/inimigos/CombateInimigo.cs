@@ -25,6 +25,8 @@ public class CombateInimigo : MonoBehaviour
     ControleNavegacao controleNavegacao;
     NavMeshAgent navAgent;
 
+
+
     void Start()
     {
         navAgent = GetComponent<NavMeshAgent>();
@@ -66,6 +68,7 @@ public class CombateInimigo : MonoBehaviour
         }
 
         if(other.name == "ArmaPersonagem"){
+            jogador.buscaArma().transform.Find("ArmaPersonagem").GetComponent<ArmaStatus>().somAtaque.Play();
             sofrerDano(jogador.ataque);
         }else if(other.name == "Especial"){
             sofrerDano(jogador.especial);
@@ -85,8 +88,6 @@ public class CombateInimigo : MonoBehaviour
 
     // recebe dano do personagem ou outra fonte
     public void sofrerDano(float dano){
-
-        //inimigo.apanhar.Play();
 
         // desconta o dano da vida do personagem
         inimigo.vida -= dano;
@@ -155,12 +156,20 @@ public class CombateInimigo : MonoBehaviour
 
     public void inimigoMorto(int i){
         if(i == 0){
-            controleNavegacao.pararSeguir();
+            Destroy(controleNavegacao);
             habilitaColisaoArma(0);
         }else{
             Destroy(gameObject);
         }
     }
 
+    public void emiteSom(string acao){
+        if(acao == "apanhar" && inimigo.apanhar != null){
+            inimigo.apanhar.Play();
+        }
+        if(acao == "morrer" && inimigo.morrer != null){
+            inimigo.morrer.Play();
+        }
+    }
 
 }

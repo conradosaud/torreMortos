@@ -21,7 +21,7 @@ public class CombateOdis : MonoBehaviour
     float velocidadePadrao;
 
     // intervalo de tempo da a animação de receber dano
-    float valorResfriamento = 1.5f;
+    float valorResfriamento = 2f;
     float tempoResfriamento;
     
     Inimigo inimigo;
@@ -183,7 +183,6 @@ public class CombateOdis : MonoBehaviour
     public void reviver(int i){
         if(i == 1){
             inimigo.vida = 100 * (qntVidas/2);
-            inimigo.ataque = 25 - (10 * (qntVidas/10) );
             estaVivo = true;
             processoAtaque(0);
             controleNavegacao.seguirPersonagem = true;

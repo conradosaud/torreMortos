@@ -53,7 +53,7 @@ public class CombatePersonagem : MonoBehaviour
         hudRolagemFundo = GameObject.FindGameObjectsWithTag("hud")[0].GetComponent<Transform>().Find("hudContador").transform.Find("rolagem").GetComponent<Image>();
         hudRolagem = hudRolagemFundo.transform.Find("contador").GetComponent<Text>();
 
-        //sons = GameObject.FindGameObjectsWithTag("audio")[0].transform;
+        sons = GameObject.FindGameObjectsWithTag("audio")[0].transform.Find("Personagem").transform;
 
     }
 
@@ -78,6 +78,7 @@ public class CombatePersonagem : MonoBehaviour
             }
             if(botaoEspecial && especialRecarga < 0){
                 personagemAtacar(armaStatus.animacao_especial);
+                statusPersonagem.buscaArma().transform.Find("ArmaPersonagem").GetComponent<ArmaStatus>().somEspecial.Play();
                 especialRecarga = valorRecarga;
                 movimentoPersonagem.alteraVel( armaStatus.reducao_vel_especial );
             }
@@ -221,6 +222,10 @@ public class CombatePersonagem : MonoBehaviour
         colisorArma = colisor;
         colisorEspecial = colisorArma.transform.Find("Especial").GetComponent<BoxCollider>();
         valorRecarga = aStatus.especial_recarga;
+    }
+
+    public void emiteSom(string acao){
+        sons.Find(acao).GetComponent<AudioSource>().Play();
     }
 
 }

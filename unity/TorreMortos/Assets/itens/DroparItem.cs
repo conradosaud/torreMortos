@@ -36,7 +36,7 @@ public class DroparItem : MonoBehaviour
             float convert = (float) i;
 
             float x = posicao.x * Random.Range(-0.1f, 0.1f);
-            float y = posicao.y * Random.Range(posicao.y + 2.5f, posicao.y + 10f);
+            float y = posicao.y * Random.Range(2.5f, 10f);
             float z = posicao.z * Random.Range(-5f, 5f);
             float forca = Random.Range(1f, 10f);
 

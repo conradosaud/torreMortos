@@ -43,8 +43,9 @@ public class CarregaGameStatus : MonoBehaviour
         corrigeArma(nome, novaArma);
         novaArma.gameObject.name = "ArmaPersonagem";
         Destroy(novaArma.GetComponent<DialogoArmas>());
-         GameObject.FindGameObjectsWithTag("hud")[0].transform.Find("Dialogos").gameObject.SetActive(false);
+        GameObject.FindGameObjectsWithTag("hud")[0].transform.Find("Dialogos").gameObject.SetActive(false);
         novaArma.GetComponent<BoxCollider>().enabled = false;
+        novaArma.gameObject.SetActive(true);
 
         // Remove as particulas da arma
         Transform particulas = novaArma.Find("Particulas");

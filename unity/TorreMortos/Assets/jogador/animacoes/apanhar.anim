@@ -54985,6 +54985,14 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.13333334
+    functionName: emiteSom
+    data: Apanhar
+    objectReferenceParameter: {fileID: 11500000, guid: 10aaed2107e38354b9bf8992a64f3baf,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 1.7666667
     functionName: processoAtaque
     data: 

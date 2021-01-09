@@ -55,6 +55,10 @@ public class EssenciaSeguirJogador : MonoBehaviour
         }
     }
 
+    private void OnDestroy() {
+        GameObject.FindGameObjectsWithTag("audio")[0].transform.Find("Outros").transform.Find("AudioEssencia").GetComponent<AudioSource>().Play();
+    }
+
     /* *************
     *    PUBLIC    *
     ************** */
@@ -67,6 +71,7 @@ public class EssenciaSeguirJogador : MonoBehaviour
         GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Jogador>().vida += valor;
         hud.atualizaVida();
     }
+
 
 
 }

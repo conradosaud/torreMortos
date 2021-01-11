@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class CombateOdis : MonoBehaviour
 {
@@ -71,9 +72,11 @@ public class CombateOdis : MonoBehaviour
 
         if(other.name == "ArmaPersonagem"){
             sofrerDano(jogador.ataque);
+            jogador.buscaArma().transform.Find("ArmaPersonagem").GetComponent<ArmaStatus>().somAtaque.Play();
         }else if(other.name == "Especial"){
             sofrerDano(jogador.especial);
         }
+
     }
 
     // olha para a direção do jogador suavemente
@@ -90,7 +93,7 @@ public class CombateOdis : MonoBehaviour
     // recebe dano do personagem ou outra fonte
     public void sofrerDano(float dano){
 
-        //inimigo.apanhar.Play();
+        inimigo.apanhar.Play();
 
         // desconta o dano da vida do personagem
         inimigo.vida -= dano;
@@ -119,6 +122,7 @@ public class CombateOdis : MonoBehaviour
         // exibe a animação de morte e seta o inimigo como morto
         if(estaVivo){
             animator.SetTrigger("morrer");
+            inimigo.morrer.Play();
             estaVivo = false;
         }
 
@@ -172,23 +176,26 @@ public class CombateOdis : MonoBehaviour
         }else{
             if(qntVidas < 7){
                 proximaVida();
+            }else{
+                SceneManager.LoadScene("Final");
             }
         }
     }
 
     public void proximaVida(){
         zumbis.transform.GetChild( qntVidas ).GetComponent<Animator>().SetTrigger("morrer");
+        transform.Find("Audio").transform.Find("Zumbi").GetComponent<AudioSource>().Play();
     }
 
     public void reviver(int i){
         if(i == 1){
-            inimigo.vida = 100 * (qntVidas/2);
+            inimigo.vida = 100 * (qntVidas/1.3f);
             estaVivo = true;
             processoAtaque(0);
             controleNavegacao.seguirPersonagem = true;
         }else{
-            
             animator.SetTrigger("reviver");
+            transform.Find("Audio").transform.Find("Renascer").GetComponent<AudioSource>().Play();
             qntVidas ++;
         }
     }

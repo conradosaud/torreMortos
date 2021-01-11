@@ -15,6 +15,8 @@ public class SantuarioPorta : MonoBehaviour
         GameStatus.personagem_vida = p.vida;
         GameStatus.personagem_arma = p.buscaArma().Find("ArmaPersonagem").GetComponent<ArmaStatus>().nome;
 
+        GameStatus.sceneAtual = "Propugnaculo";
+
         SceneManager.LoadScene("Propugnaculo");
     }
    

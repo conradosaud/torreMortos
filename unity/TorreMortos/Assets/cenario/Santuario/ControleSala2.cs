@@ -8,7 +8,9 @@ public class ControleSala2 : MonoBehaviour
     public GameObject escadaria;
 
     private void OnDestroy() {
-        Destroy(bloqueio);
-        escadaria.SetActive(true);
+        if(bloqueio){
+            Destroy(bloqueio);
+            escadaria.SetActive(true);
+        }
     }
 }

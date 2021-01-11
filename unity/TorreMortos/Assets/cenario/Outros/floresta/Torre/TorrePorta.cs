@@ -31,6 +31,8 @@ public class TorrePorta : MonoBehaviour
             GameStatus.personagem_vida = p.vida;
             GameStatus.personagem_arma = p.buscaArma().transform.Find("ArmaPersonagem").GetComponent<ArmaStatus>().nome;
 
+            GameStatus.sceneAtual = "Entrada";
+
             SceneManager.LoadScene("Entrada");
 
         }

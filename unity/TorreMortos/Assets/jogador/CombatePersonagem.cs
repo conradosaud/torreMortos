@@ -152,7 +152,7 @@ public class CombatePersonagem : MonoBehaviour
     public void mataPersonagem(bool gameOver){
         statusPersonagem.vida = 0;
         if(gameOver){
-            //SceneManager.LoadScene("gameover");
+            SceneManager.LoadScene("GameOver");
         }
     }
 

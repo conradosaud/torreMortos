@@ -24,6 +24,8 @@ public class ControleZumbi : MonoBehaviour
 
         Destroy(transform.Find("luz").gameObject);
 
+        
+
     }
 
 }

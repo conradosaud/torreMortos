@@ -7,4 +7,6 @@ public static class GameStatus
     public static float personagem_vida;
     public static string personagem_arma;
 
+    public static string sceneAtual;
+
 }

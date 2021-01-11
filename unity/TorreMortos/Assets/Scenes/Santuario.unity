@@ -18773,7 +18773,7 @@ RectTransform:
   m_GameObject: {fileID: 669856926}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 12.989346, y: 8.177649, z: 1}
+  m_LocalScale: {x: 25, y: 15, z: 1}
   m_Children: []
   m_Father: {fileID: 1243388230}
   m_RootOrder: 0
@@ -58384,7 +58384,7 @@ MonoBehaviour:
   bater: {fileID: 0}
   morrer: {fileID: 109403634}
   nome: Apocalipse
-  vida: 1
+  vida: 450
   ataque: 40
   essencia_min: 20
   essencia_max: 30

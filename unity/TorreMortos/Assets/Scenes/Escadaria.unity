@@ -49273,7 +49273,7 @@ MonoBehaviour:
   morrer: {fileID: 260320656}
   nome: Guerreiro Consumido
   vida: 200
-  ataque: 20
+  ataque: 30
   essencia_min: 5
   essencia_max: 10
 --- !u!195 &940354072
@@ -61279,7 +61279,7 @@ MonoBehaviour:
   morrer: {fileID: 260320656}
   nome: Guerreiro Consumido
   vida: 200
-  ataque: 20
+  ataque: 30
   essencia_min: 5
   essencia_max: 10
 --- !u!195 &1123072939
@@ -79452,17 +79452,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 99da389316e714e448b2de7cd0016d7f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.93
+      value: -11.604
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 99da389316e714e448b2de7cd0016d7f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 36.76
+      value: 3.646
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 99da389316e714e448b2de7cd0016d7f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 26.23
+      value: 2.305
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 99da389316e714e448b2de7cd0016d7f,
         type: 3}
@@ -85482,7 +85482,7 @@ RectTransform:
   m_GameObject: {fileID: 1712855440}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 12.989346, y: 8.177649, z: 1}
+  m_LocalScale: {x: 25, y: 15, z: 1}
   m_Children: []
   m_Father: {fileID: 21394637}
   m_RootOrder: 0

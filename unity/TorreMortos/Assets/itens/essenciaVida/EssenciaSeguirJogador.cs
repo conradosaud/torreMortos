@@ -56,7 +56,10 @@ public class EssenciaSeguirJogador : MonoBehaviour
     }
 
     private void OnDestroy() {
-        GameObject.FindGameObjectsWithTag("audio")[0].transform.Find("Outros").transform.Find("AudioEssencia").GetComponent<AudioSource>().Play();
+
+        if(GameObject.FindGameObjectsWithTag("audio").Length >= 1){
+            GameObject.FindGameObjectsWithTag("audio")[0].transform.Find("Outros").transform.Find("AudioEssencia").GetComponent<AudioSource>().Play();
+        }
     }
 
     /* *************

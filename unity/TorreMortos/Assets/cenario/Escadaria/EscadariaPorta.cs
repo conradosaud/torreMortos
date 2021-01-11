@@ -26,6 +26,8 @@ public class EscadariaPorta : MonoBehaviour
             GameStatus.personagem_vida = p.vida;
             GameStatus.personagem_arma = p.buscaArma().Find("ArmaPersonagem").GetComponent<ArmaStatus>().nome;
 
+            GameStatus.sceneAtual = "Santuario";
+
             SceneManager.LoadScene("Santuario");
 
         }
